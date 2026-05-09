@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="ConsoleTask/ConsoleTask.csproj" />
-  <Project Path="WinFormsTask/WinFormsTask.csproj" />
+  <Project Path="ConsoleServerTask/ConsoleServerTask.csproj" Id="5e33d930-9538-44a4-ba29-faf8e606c720" />
+  <Project Path="WinFormsClientTask/WinFormsClientTask.csproj" Id="652a122a-63e9-45ba-804b-135b68b38c3f" />
 </Solution>

@@ -1,4 +1,4 @@
-namespace WinFormsTask
+namespace WinFormsClientTask
 {
     internal static class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace WinFormsTask
+﻿namespace WinFormsClientTask
 {
     partial class Client
     {
@@ -29,45 +29,23 @@
         private void InitializeComponent()
         {
             btnSend = new Button();
-            txtMessage = new TextBox();
-            txtAsnwer = new TextBox();
             label1 = new Label();
-            label2 = new Label();
+            txtLog = new TextBox();
+            txtNumber = new TextBox();
             SuspendLayout();
             // 
             // btnSend
             // 
-            btnSend.BackColor = Color.FromArgb(3, 0, 55);
+            btnSend.BackColor = Color.FromArgb(0, 2, 98);
             btnSend.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnSend.ForeColor = Color.Yellow;
-            btnSend.Location = new Point(12, 78);
+            btnSend.Location = new Point(12, 45);
             btnSend.Name = "btnSend";
-            btnSend.Size = new Size(776, 51);
+            btnSend.Size = new Size(776, 29);
             btnSend.TabIndex = 0;
             btnSend.Text = "Send";
             btnSend.UseVisualStyleBackColor = false;
             btnSend.Click += btnSend_Click;
-            // 
-            // txtMessage
-            // 
-            txtMessage.BackColor = Color.FromArgb(3, 0, 55);
-            txtMessage.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            txtMessage.ForeColor = Color.Yellow;
-            txtMessage.Location = new Point(88, 12);
-            txtMessage.Name = "txtMessage";
-            txtMessage.Size = new Size(700, 27);
-            txtMessage.TabIndex = 1;
-            // 
-            // txtAsnwer
-            // 
-            txtAsnwer.BackColor = Color.FromArgb(3, 0, 55);
-            txtAsnwer.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            txtAsnwer.ForeColor = Color.Yellow;
-            txtAsnwer.Location = new Point(88, 45);
-            txtAsnwer.Name = "txtAsnwer";
-            txtAsnwer.ReadOnly = true;
-            txtAsnwer.Size = new Size(700, 27);
-            txtAsnwer.TabIndex = 2;
             // 
             // label1
             // 
@@ -76,35 +54,46 @@
             label1.ForeColor = Color.Yellow;
             label1.Location = new Point(12, 19);
             label1.Name = "label1";
-            label1.Size = new Size(74, 20);
-            label1.TabIndex = 3;
-            label1.Text = "Message:";
+            label1.Size = new Size(72, 20);
+            label1.TabIndex = 1;
+            label1.Text = "Number:";
             // 
-            // label2
+            // txtLog
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(3, 0, 55);
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label2.ForeColor = Color.Yellow;
-            label2.Location = new Point(12, 52);
-            label2.Name = "label2";
-            label2.Size = new Size(67, 20);
-            label2.TabIndex = 4;
-            label2.Text = "Answer:";
+            txtLog.BackColor = Color.FromArgb(0, 2, 98);
+            txtLog.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            txtLog.ForeColor = Color.Yellow;
+            txtLog.Location = new Point(12, 80);
+            txtLog.Multiline = true;
+            txtLog.Name = "txtLog";
+            txtLog.ReadOnly = true;
+            txtLog.ScrollBars = ScrollBars.Vertical;
+            txtLog.Size = new Size(776, 358);
+            txtLog.TabIndex = 3;
+            // 
+            // txtNumber
+            // 
+            txtNumber.BackColor = Color.FromArgb(0, 2, 98);
+            txtNumber.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            txtNumber.ForeColor = Color.Yellow;
+            txtNumber.Location = new Point(84, 12);
+            txtNumber.Name = "txtNumber";
+            txtNumber.Size = new Size(704, 27);
+            txtNumber.TabIndex = 5;
             // 
             // Client
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(3, 0, 55);
-            ClientSize = new Size(800, 141);
-            Controls.Add(label2);
+            BackColor = Color.FromArgb(0, 2, 98);
+            ClientSize = new Size(800, 450);
+            Controls.Add(txtNumber);
+            Controls.Add(txtLog);
             Controls.Add(label1);
-            Controls.Add(txtAsnwer);
-            Controls.Add(txtMessage);
             Controls.Add(btnSend);
             Name = "Client";
             Text = "Client";
+            FormClosing += Client_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -112,9 +101,8 @@
         #endregion
 
         private Button btnSend;
-        private TextBox txtMessage;
-        private TextBox txtAsnwer;
         private Label label1;
-        private Label label2;
+        private TextBox txtLog;
+        private TextBox txtNumber;
     }
 }
