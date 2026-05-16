@@ -1,9 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 using System.Text;
-
 namespace ConsoleServerTask;
-
 public class Program
 {
     private static Socket _server;
@@ -26,11 +24,9 @@ public class Program
         _server.DualMode = true;
         _server.Bind(localEp);
         clients = new List<EndPoint>();
-
         while (true)
         {
             byte[] buffer = new byte[4096];
-
             EndPoint remoteEp = new IPEndPoint(IPAddress.Any, 0);
             SocketReceiveFromResult result = await _server.ReceiveFromAsync(buffer, remoteEp);
             string message =
@@ -39,13 +35,11 @@ public class Program
                     0,
                     result.ReceivedBytes);
             Console.WriteLine($"[LOG] {result.RemoteEndPoint}: {message}");
-
             bool exists = clients.Any(
                 x => x.ToString() ==
                 result.RemoteEndPoint.ToString());
             if (!exists)
                 clients.Add(result.RemoteEndPoint);
-
                 Console.WriteLine(
                     $"[SERVER] New player: {result.RemoteEndPoint}");
             if (message == "LEFT")
@@ -59,15 +53,12 @@ public class Program
 
                 continue;
             }
-
             int number;
             if (!int.TryParse(message, out number))
             {
                 continue;
             }
-
             string answer = "";
-
             if (number < secretNumber)
             {
                 answer = "Too small";
@@ -80,35 +71,24 @@ public class Program
             {
                 answer = "You win!";
             }
-
             byte[] answerData = Encoding.UTF8.GetBytes(answer);
-
             ArraySegment<byte> answerBuffer = new ArraySegment<byte>(answerData);
-
             await _server.SendToAsync(answerBuffer, result.RemoteEndPoint);
-
             if (number == secretNumber)
             {
                 string winnerMessage = $"Player {result.RemoteEndPoint} won!";
-
                 byte[] winnerData = Encoding.UTF8.GetBytes(winnerMessage);
-
                 ArraySegment<byte> winnerBuffer = new ArraySegment<byte>(winnerData);
-
                 foreach (EndPoint client in clients)
                 {
                     await _server.SendToAsync(
                         winnerBuffer,
                         client);
                 }
-
                 Console.WriteLine("[SERVER] Game over");
-
                 break;
             }
         }
-
         _server.Close();
     }
-
 }
