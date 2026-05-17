@@ -1,4 +1,11 @@
 <Solution>
-  <Project Path="ConsoleServer/ConsoleServer.csproj" Id="49b00907-80f3-4a04-87ff-f2693bbda228" />
-  <Project Path="LibraryServer/LibraryServer.csproj" Id="bef8ee72-c8c6-44bb-b7e1-729e1c3a0fdb" />
+  <Folder Name="/Practice_16_05_2026/">
+    <Project Path="ConsoleServer/ConsoleServer.csproj" Id="49b00907-80f3-4a04-87ff-f2693bbda228" />
+    <Project Path="LibraryServer/LibraryServer.csproj" Id="bef8ee72-c8c6-44bb-b7e1-729e1c3a0fdb" />
+  </Folder>
+  <Folder Name="/Practice_HW_17_to_24_05_2026/">
+    <Project Path="MulticastClient/MulticastClient.csproj" Id="fc50c2f4-46ef-4a76-ac02-91ce7e5e51a6" />
+    <Project Path="MulticastLibrary/MulticastLibrary.csproj" Id="561a0a60-51f7-41f2-b11b-c737205cf537" />
+    <Project Path="MulticastServer/MulticastServer.csproj" Id="c746939a-1e05-4a1c-aa93-42e6942626f4" />
+  </Folder>
 </Solution>
